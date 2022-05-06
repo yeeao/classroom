@@ -88,7 +88,11 @@ export default function Classes({
           {classrooms.map(classrooms => (
             <div key={classrooms.id}>
               <a>
-                <ClassInviteTable classes={classrooms}></ClassInviteTable>
+                <ClassInviteTable
+                  classes={classrooms}
+                  certificationNames={certificationNames}
+                  userId={user}
+                ></ClassInviteTable>
               </a>
             </div>
           ))}

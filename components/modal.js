@@ -21,9 +21,10 @@ export default function Modal({ userId, certificationNames }) {
     e.preventDefault();
     const fccCertifications = [];
     selected.map(x => fccCertifications.push(x.value));
-    fccCertifications.sort();
+    fccCertifications.sort(function (a, b) {
+      return a - b;
+    });
     formData.fccCertifications = fccCertifications;
-
     const response = await fetch(`/api/create_class_teacher`, {
       method: 'POST',
       body: JSON.stringify(formData)
