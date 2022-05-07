@@ -30,19 +30,23 @@ export default function Home() {
           <link rel='icon' href='/favicon.ico' />
           <Navbar></Navbar>
         </Head>
-        <div className='mt-10'>
-          <h1 className='text-[40px] text-center big-heading underline'>
-            Welcome to FreeCodeCamp Classroom Mode
+        <div className='mt-20'>
+          <h1 className='text-[40px] font-bold text-center big-heading '>
+            Welcome Teachers!
           </h1>
         </div>
       </div>
-      <div className='mt-40 text-center border-4 border-[#0a0a23] bg-white p-10 rounded-lg shadow-xl max-w-2xl mx-auto'>
-        <h1 className='text-2xl font-bold'>Welcome Teachers!</h1>
+      <div className='mt-20 text-center border-4 border-[#0a0a23] bg-white p-10 rounded-lg shadow-xl max-w-2xl mx-auto'>
+        <h1 className='text-2xl font-bold'>Sign In</h1>
         <div className='mt-4 mb-10'>
           <p className='text-gray-600'>
             Please sign in to access Classroom Dashboard Mode
           </p>
         </div>
+        <AuthButton></AuthButton>
+      </div>
+      <div className='mt-20 text-center border-4 border-[#0a0a23] bg-white p-10 rounded-lg shadow-xl max-w-2xl mx-auto'>
+        <h1 className='text-2xl font-bold'>About</h1>
         <div className={'p-6'}>
           <h1
             className={
@@ -54,7 +58,6 @@ export default function Home() {
             platform.
           </h1>
         </div>
-        <AuthButton></AuthButton>
       </div>
     </>
   );
