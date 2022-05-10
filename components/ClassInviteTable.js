@@ -53,6 +53,7 @@ export default function ClassInviteTable({
     });
     formData.fccCertifications = fccCertifications;
     formData.classroomId = classes.classroomId;
+
     const response = await fetch(`/api/editclass`, {
       method: 'PUT',
       body: JSON.stringify(formData)
@@ -278,7 +279,6 @@ export default function ClassInviteTable({
                             Edit Select Certifications:
                           </h1>
                           <MultiSelect
-                            hidePlaceholder={false}
                             options={certificationNames}
                             value={selected}
                             onChange={setSelected}
