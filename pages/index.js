@@ -3,6 +3,7 @@ import AuthButton from '../components/auth-button';
 import styles from '../styles/Home.module.css';
 import Navbar from '../components/navbar';
 import prisma from '../prisma/prisma';
+
 export async function getServerSideProps() {
   const classrooms = await prisma.Classroom.findMany();
   const output = [];
@@ -22,6 +23,7 @@ export async function getServerSideProps() {
 export default function Home() {
   return (
     <>
+      <AuthButton></AuthButton>
       <div className={styles.container}>
         <Head>
           <title>Create Next App</title>
@@ -29,27 +31,15 @@ export default function Home() {
           <link rel='icon' href='/favicon.ico' />
           <Navbar></Navbar>
         </Head>
-        <div className='mt-20'>
-          <h1 className='text-[40px] font-bold text-center big-heading '>
-            Welcome Teachers!
+        <div className={styles.boxx}>
+          <h1 className='text-[40px] text-center big-heading underline'>
+            Welcome to FreeCodeCamp Classroom Mode
           </h1>
         </div>
-      </div>
-      <div className='mt-20 text-center border-4 border-[#0a0a23] bg-white p-10 rounded-lg shadow-xl max-w-2xl mx-auto'>
-        <h1 className='text-2xl font-bold'>Sign In</h1>
-        <div className='mt-4 mb-10'>
-          <p className='text-gray-600'>
-            Please sign in to access Classroom Dashboard Mode
-          </p>
-        </div>
-        <AuthButton></AuthButton>
-      </div>
-      <div className='mt-20 text-center border-4 border-[#0a0a23] bg-white p-10 rounded-lg shadow-xl max-w-2xl mx-auto'>
-        <h1 className='text-2xl font-bold'>About</h1>
-        <div className={'p-6'}>
+        <div className={'p-6 ml-20 mr-20'}>
           <h1
             className={
-              'box-content bg-[#d0d0d5] h-100 w-100 p-4 border-4 border-[#0a0a23] text-s'
+              'box-content bg-[#d0d0d5] h-100 w-100 p-4 border-4 border-[#0a0a23] text-3xl'
             }
           >
             A self-hosted solution to help teachers plan and manage
