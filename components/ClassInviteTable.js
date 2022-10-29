@@ -6,29 +6,21 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function ClassInviteTable({ classes }) {
   const router = useRouter();
+  const {query} = useRouter();
+  
   const copy = async () => {
     //Add the full URL to send to student
     await navigator.clipboard.writeText(
       'http://localhost:3000/join/' + classes.classroomId
     );
-    // alert(
-    //   'Text copied for:' +
-    //     '\n' +
-    //     'Class: ' +
-    //     classes.classroomName +
-    //     '\n' +
-    //     'Invite Code: ' +
-    //     classes.classroomId
-    // );
-    toast.error('Holy smokes! Something seriously bad happened!', {
-      position: 'top-center',
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'light'
-    });
+
+    toast.error('Holy smokes! Something seriously bad happened!');
+    return (
+      <div>
+        <h1>Items page</h1>
+        <p>{query.name}</p>
+      </div>
+    );
   };
 
   const deleteClass = async () => {
@@ -37,8 +29,8 @@ export default function ClassInviteTable({ classes }) {
         method: 'DELETE',
         body: JSON.stringify(classes.classroomId)
       });
-      router.reload('http://localhost:3000/classes');
-      alert('Successfully Deleted Class');
+      router.push('/classes');
+      toast.success("Successfully Deleted Class!")
       return await response.json();
     }
     return;

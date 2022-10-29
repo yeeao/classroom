@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { MultiSelect } from 'react-multi-select-component';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+//import "./toastContainer.js"
 
 export default function Modal({ userId, certificationNames }) {
+  
   const handleCancelClick = () => {
     setModalOn(false);
   };
-
+  
   const [formData, setFormData] = useState({});
   const [selected, setSelected] = useState([]);
 
@@ -28,9 +33,12 @@ export default function Modal({ userId, certificationNames }) {
       method: 'POST',
       body: JSON.stringify(formData)
     });
-    router.reload();
-    alert('Successfully Created Class');
+
+    router.push("/classes?banner=createclass")
+    
+   
     return await response.json();
+  
   }
 
   return (
